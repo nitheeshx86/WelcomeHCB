@@ -16,8 +16,9 @@
     "@tabler/icons-react": "^3.31.0",
     "clsx": "^2.1.1",
     "framer-motion": "^11.18.2",
+    "gsap": "^3.13.0",
     "meshline": "^3.3.1",
-    "motion": "^12.6.1",
+    "motion": "^12.23.12",
     "next": "14.2.24",
     "react": "^18",
     "react-dom": "^18",
@@ -25,6 +26,7 @@
     "three": "^0.167.1"
   },
   "devDependencies": {
+    "@types/gsap": "^1.20.2",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

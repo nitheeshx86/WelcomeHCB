@@ -72,7 +72,7 @@ const WelcomePage: React.FC<Props> = ({ onSubmit }) => {
             <input
               type="checkbox"
               checked={isButtonPressed}
-              onChange={handleSubmit}
+              onChange={() => handleSubmit()}
               disabled={!name.trim() || isWaiting}
             />
             <div className="switch-button">

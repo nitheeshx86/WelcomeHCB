@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
+    "target": "es2017",                 // ✅ ensures for..of works on NodeList
     "lib": ["dom", "dom.iterable", "esnext"],
+    "downlevelIteration": true,         // ✅ allows iteration on NodeList, Map, Set
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,

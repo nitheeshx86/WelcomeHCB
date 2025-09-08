@@ -4,6 +4,9 @@ import { useState } from 'react';
 import WelcomePage from './WelcomePage';
 import HomeComponent from './HomeComponent';
 import DepartmentSelector from './Departments'; // import your department component
+import SelectionStatsSection from './Result'; 
+import HackClubHero from './Hackclub';
+
 
 export default function Page() {
   const [showHome, setShowHome] = useState(false);
@@ -18,7 +21,9 @@ export default function Page() {
     <>
       {!showHome && <WelcomePage onSubmit={handleNameSubmit} />}
       {showHome && <HomeComponent userName={userName} />}
-      {showHome && <DepartmentSelector userName={userName}/>}
+      {showHome && <HackClubHero />}
+      {showHome && <SelectionStatsSection />}
+      {showHome && <DepartmentSelector />}
       {/* DepartmentSelector appears after everything */}
      
 
@@ -42,3 +47,4 @@ export default function Page() {
     </>
   );
 }
+

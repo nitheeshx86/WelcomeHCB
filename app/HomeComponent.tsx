@@ -16,8 +16,12 @@ interface HomeComponentProps {
   userName: string;
 }
 
+interface WaveMenuProps {
+  isPlaying: boolean;
+  onClick: () => void;
+}
 
-const WaveMenu = ({ isPlaying, onClick }) => {
+const WaveMenu: React.FC<WaveMenuProps> = ({ isPlaying, onClick }) => {
   return (
     <div
       className="wave-menu fixed top-8 left-8 z-50 group relative"
@@ -97,7 +101,7 @@ const WaveMenu = ({ isPlaying, onClick }) => {
 
 export default function HomeComponent({ userName }: HomeComponentProps) {
   const [isPlaying, setIsPlaying] = useState(false);
-  const audioRef = useRef(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const toggleMusic = () => {
     if (audioRef.current) {
