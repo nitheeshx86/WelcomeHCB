@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 const Footer = () => {
   return (
+    
     <footer className="relative bg-gradient-to-br from-amber-900 to-amber-800 overflow-hidden">
       {/* Background geometric pattern */}
       <div className="absolute inset-0 opacity-20">

@@ -7,6 +7,7 @@ import DepartmentSelector from './Departments'; // import your department compon
 import SelectionStatsSection from './Result'; 
 import HackClubHero from './Hackclub';
 import Footer from './Footer';
+import Asciipage from './Aski';
 
 export default function Page() {
   const [showHome, setShowHome] = useState(false);
@@ -24,6 +25,7 @@ export default function Page() {
       {showHome && <HackClubHero />}
       {showHome && <SelectionStatsSection />}
       {showHome && <DepartmentSelector />}
+      {showHome && <Asciipage />}
       {showHome && <Footer />}
       {/* DepartmentSelector appears after everything */}
      

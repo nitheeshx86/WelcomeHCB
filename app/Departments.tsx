@@ -288,7 +288,7 @@ const DepartmentSelector = () => {
           --tertiary-hue: 260;
         }
       `}</style>
-        <h1 className="text-8xl bg-orange-400 text-gray-900 p-2">
+        <h1 className="text-8xl bg-[rgb(205,89,27)] text-gray-900 p-2">
           Next Step
         </h1>
       <div className="min-h-screen bg-[rgb(205,89,27)] relative">

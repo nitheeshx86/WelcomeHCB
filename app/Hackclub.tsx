@@ -1,5 +1,4 @@
 import ImageTrail from './components/ImageTrail/ImageTrail';
-import ScrollFloat from './components/ScrollReveal/ScrollReveal';
 
 export default function HackClubHero() {
   const key = 'hackclub-trail';
@@ -20,17 +19,14 @@ export default function HackClubHero() {
           variant={7}
         />
       </div>
-      <ScrollFloat
-        animationDuration={1}
-        ease='back.inOut(2)'
-        scrollStart='center bottom+=50%'
-        scrollEnd='bottom bottom-=40%'
-        stagger={0.03}
-      >
-      <h1 className="text-8xl md:text-9xl font-black text-black tracking-wider drop-shadow-2xl relative" style={{ zIndex: 1 }}>
-        HACKCLUB
-      </h1>
-      </ScrollFloat>
+      <div className='flex flex-col items-center text-center relative z-0'>
+        <h1 className="text-8xl md:text-9xl font-black text-black tracking-wider drop-shadow-2xl">
+          HACKCLUB
+        </h1>
+        <h2 className='text-3xl md:text-4xl font-medium text-black tracking-wide drop-shadow-2xl mt-4'>
+          Tech.Meets.Innovation.
+        </h2>
+      </div>
     </div>
   );
 }

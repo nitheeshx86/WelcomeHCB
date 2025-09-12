@@ -1,5 +1,106 @@
 import React from 'react';
 
+// Simple Squares background component
+const Squares = ({ speed = 0.5, squareSize = 40, direction = "diagonal", borderColor = "#4a3429ff", hoverFillColor = "#ff774548" }) => {
+  const [mousePosition, setMousePosition] = React.useState({ x: -1000, y: -1000 });
+  const containerRef = React.useRef(null);
+  
+  React.useEffect(() => {
+    const handleMouseMove = (e) => {
+      if (containerRef.current) {
+        const rect = containerRef.current.getBoundingClientRect();
+        setMousePosition({ 
+          x: e.clientX - rect.left, 
+          y: e.clientY - rect.top 
+        });
+      }
+    };
+    
+    const handleMouseLeave = () => {
+      setMousePosition({ x: -1000, y: -1000 });
+    };
+    
+    const container = containerRef.current;
+    if (container) {
+      container.addEventListener('mousemove', handleMouseMove);
+      container.addEventListener('mouseleave', handleMouseLeave);
+    }
+    
+    return () => {
+      if (container) {
+        container.removeEventListener('mousemove', handleMouseMove);
+        container.removeEventListener('mouseleave', handleMouseLeave);
+      }
+    };
+  }, []);
+
+  // Get container dimensions
+  const [dimensions, setDimensions] = React.useState({ width: 1400, height: 800 });
+  
+  React.useEffect(() => {
+    const updateDimensions = () => {
+      if (containerRef.current) {
+        const rect = containerRef.current.getBoundingClientRect();
+        setDimensions({ width: rect.width, height: rect.height });
+      }
+    };
+    
+    updateDimensions();
+    window.addEventListener('resize', updateDimensions);
+    
+    return () => window.removeEventListener('resize', updateDimensions);
+  }, []);
+
+  const cols = Math.ceil(dimensions.width / squareSize);
+  const rows = Math.ceil(dimensions.height / squareSize);
+  
+  // Find the square that should be highlighted
+  const hoveredCol = Math.floor(mousePosition.x / squareSize);
+  const hoveredRow = Math.floor(mousePosition.y / squareSize);
+  
+  // Check if mouse is within valid bounds
+  const isValidHover = mousePosition.x >= 0 && mousePosition.y >= 0 && 
+                       hoveredCol >= 0 && hoveredRow >= 0 && 
+                       hoveredCol < cols && hoveredRow < rows;
+  
+  return (
+    <div ref={containerRef} className="absolute inset-0 overflow-hidden pointer-events-auto">
+      <svg width="100%" height="100%" className="absolute inset-0 w-full h-full">
+        {/* Grid pattern */}
+        <defs>
+          <pattern id="squares" x="0" y="0" width={squareSize} height={squareSize} patternUnits="userSpaceOnUse">
+            <rect 
+              x="0" 
+              y="0" 
+              width={squareSize} 
+              height={squareSize} 
+              fill="transparent" 
+              stroke={borderColor} 
+              strokeWidth="1"
+            />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#squares)" />
+        
+        {/* Single hovered square */}
+        {isValidHover && (
+          <rect
+            x={hoveredCol * squareSize + 1}
+            y={hoveredRow * squareSize + 1}
+            width={squareSize - 2}
+            height={squareSize - 2}
+            fill="#ff7745"
+            opacity="0.6"
+            style={{
+              transition: 'opacity 0.1s ease-out'
+            }}
+          />
+        )}
+      </svg>
+    </div>
+  );
+};
+
 // CountUp component with intersection observer
 const CountUp = ({ from, to, separator, direction, duration, className }) => {
   const [count, setCount] = React.useState(from);
@@ -50,17 +151,32 @@ const CountUp = ({ from, to, separator, direction, duration, className }) => {
 
 export default function SelectionStatsSection() {
   return (
-    <section className="bg-gray-900 py-16 px-6">
-      <div className="max-w-6xl mx-auto text-center">
+    <section className="relative bg-gray-400 py-16 px-6 overflow-hidden shadow-[inset_0_20px_20px_rgba(0,0,0,0.6),inset_0_-20px_20px_rgba(0,0,0,0.6)]">
+      {/* Square background */}
+      <Squares 
+        speed={0.5} 
+        squareSize={40}
+        direction="diagonal" 
+        borderColor="#4a3429ff"
+        hoverFillColor="#ff774548"
+      />
+
+      <div className="relative z-10 max-w-6xl mx-auto text-center pointer-events-none">
         {/* Main heading */}
-        <h2 className="text-4xl md:text-5xl font-bold text-white mb-12">
+        <h2
+          className="text-4xl md:text-5xl font-bold text-black mb-12"
+          style={{
+            textShadow: "4px 4px 0 gray" // solid offset bottom-right
+          }}
+        >
           You Impressed Us
         </h2>
+
         
         {/* Stats container - horizontal layout */}
         <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16 mb-12">
           {/* Total Applications */}
-          <div className="bg-gray-800 rounded-2xl shadow-2xl p-8 hover:bg-gray-750 transition-all duration-300 min-w-[200px]">
+          <div className="bg-[#454545] rounded-2xl shadow-2xl p-8 hover:bg-gray-750 transition-all duration-300 min-w-[200px] pointer-events-auto">
             <div className="text-orange-500 text-5xl md:text-6xl font-bold mb-4">
               <CountUp
                 from={0}
@@ -75,12 +191,12 @@ export default function SelectionStatsSection() {
               Total Applications
             </h3>
             <p className="text-gray-400">
-              Candidates applied
+              
             </p>
           </div>
 
           {/* Selected Candidates */}
-          <div className="bg-gray-800 rounded-2xl shadow-2xl p-8 hover:bg-gray-750 transition-all duration-300 min-w-[200px]">
+          <div className="bg-[#454545] rounded-2xl shadow-2xl p-8 hover:bg-gray-750 transition-all duration-300 min-w-[200px] pointer-events-auto">
             <div className="text-orange-500 text-5xl md:text-6xl font-bold mb-4">
               <CountUp
                 from={0}
@@ -100,7 +216,7 @@ export default function SelectionStatsSection() {
           </div>
 
           {/* Selection Rate */}
-          <div className="bg-gray-800 rounded-2xl shadow-2xl p-8 hover:bg-gray-750 transition-all duration-300 min-w-[200px]">
+          <div className="bg-[#454545] rounded-2xl shadow-2xl p-8 hover:bg-gray-750 transition-all duration-300 min-w-[200px] pointer-events-auto">
             <div className="text-orange-500 text-5xl md:text-6xl font-bold mb-4">
               <CountUp
                 from={0}
@@ -122,7 +238,7 @@ export default function SelectionStatsSection() {
         </div>
 
         {/* Congratulations message */}
-        <div className="bg-gray-800 border border-gray-700 rounded-2xl p-8 shadow-2xl">
+        <div className="bg-gray-800 border border-gray-700 rounded-2xl p-8 shadow-2xl pointer-events-auto">
           <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
             Congratulations!
           </h3>

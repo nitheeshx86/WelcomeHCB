@@ -135,8 +135,8 @@ export default function HomeComponent({ userName }: HomeComponentProps) {
           speed={0.5} 
           squareSize={40}
           direction='diagonal' // up, down, left, right, diagonal
-          borderColor='#444A29'
-          hoverFillColor='#19222D'
+          borderColor='#4a3429ff'
+          hoverFillColor='#ff774548'
         />
       </div>
       <div className="container mx-auto h-screen">
@@ -181,7 +181,7 @@ export default function HomeComponent({ userName }: HomeComponentProps) {
       </div>
       <div className="relative top-0 left-0 right-0 bottom-0 flex items-center justify-center py-10">
       <ScrollVelocity 
-        texts={['[HackClub VITC]  ', 'Build‎ ‎  Learn‎ ‎  Grow ‎ ‎ ', 'Make friends ‎ ‎  Have fun‎ ‎ ']} 
+        texts={['[HackClub VITC] [HackClub VITC]  ', 'Build‎ ‎  Learn‎ ‎  Grow ‎ ‎ Build‎ ‎  Learn‎ ‎  Grow ‎ ‎ ', 'Make friends ‎ ‎  Have fun‎ ‎ Create Memories ‎ ‎ ']} 
       />
       </div>
 

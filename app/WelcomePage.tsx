@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 interface Props {
   onSubmit: (name: string) => void;
@@ -8,7 +8,17 @@ const WelcomePage: React.FC<Props> = ({ onSubmit }) => {
   const [name, setName] = useState('');
   const [isWaiting, setIsWaiting] = useState(false);
   const [isButtonPressed, setIsButtonPressed] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    // Detect mobile device based on user agent
+    const checkMobile = /iPhone|iPad|iPod|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    );
+    setIsMobile(checkMobile);
+  }, []);
+
 
   const handleSubmit = () => {
     if (name.trim() && !isWaiting) {
@@ -49,6 +59,22 @@ const WelcomePage: React.FC<Props> = ({ onSubmit }) => {
           ONBOARDING
         </h1>
 
+
+        {isMobile ? (
+        // Mobile users see this message
+        <div className="z-10 text-white max-w-xl space-y-4">
+          <p className="text-2xl font-bold">
+            Our website is tailored like a fine suit — meant for the big screen.
+          </p>
+          <p className="text-lg">
+            Kindly switch to your laptop or PC to step inside the lounge.
+          </p>
+          <p className="text-md text-gray-400">
+            For the full magic, please open this page on your laptop or desktop.
+          </p>
+        </div>
+      ) : (
+        // Desktop users see the input and button        
         <div className="flex items-center space-x-16 z-10">
           {/* Custom Input */}
           <div className="input-container">
@@ -84,8 +110,8 @@ const WelcomePage: React.FC<Props> = ({ onSubmit }) => {
             </div>
           </label>
         </div>
+      )}
       </div>
-
       <style jsx>{`
         .input-container {
           display: flex;
