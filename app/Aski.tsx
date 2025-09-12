@@ -3,10 +3,10 @@ import ASCIIText from './components/ASCIIText/ASCIIText';
 
 const Asciipage = () => {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-black text-white">
+    <div className="flex items-center justify-center min-h-screen bg-black text-white text-center">
       {/* ASCII Text - centered horizontally and vertically */}
       <ASCIIText
-        text="Welcome2HackClub!"
+        text={`Welcome\n2\nHackClub!`}
         enableWaves={true}
         asciiFontSize={8}
         textFontSize={15}
