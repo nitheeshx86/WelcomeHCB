@@ -39,54 +39,79 @@ const DepartmentSelector = () => {
     }
   > = {
     aiml: {
-      leads: [{ name: "Soumya Goel", phone: "+91 9205843760" },{name: "Harleen", phone: "+91 74629 00157"}],
-      about: "AI/ML is about building smart models and intelligent systems.",
-      message: "Join us to explore artificial intelligence and machine learning!",
+      leads: [
+        { name: "Soumya Goel", phone: "+91 9205843760" },
+        { name: "Harleen", phone: "+91 74629 00157" }
+      ],
+      about: "AI/ML isn’t just about code; it’s about teaching machines to think, learn, and make decisions like humans. It’s a playground for curious minds who love problem-solving and want to shape the future.",
+      message: "Join us, and let’s dive deep into the world of artificial intelligence together—where your ideas can become smart systems that change the way we live and work!"
     },
     "app-dev": {
       leads: [{ name: "Akshat Srivatsava", phone: "N/A" }],
-      about: "App Development focuses on building modern mobile solutions.",
-      message: "Create mobile apps that make an impact!",
+      about: "Building apps is like creating your own little universe. Every tap, swipe, and interaction is a chance to make someone’s day better or solve a real-world problem.",
+      message: "Come build mobile apps with us, and turn your imagination into something people can actually use and love every single day!"
     },
     blockchain: {
       leads: [{ name: "Gokulakrishnan", phone: "+91 83007 79239" }],
-      about: "Blockchain focuses on decentralization and Web3 innovation.",
-      message: "Be part of the future of decentralized tech!",
+      about: "Blockchain is more than code—it’s a revolution. It’s about decentralization, trust, and creating systems where people can interact without middlemen. It’s the future being built today.",
+      message: "Step into the world of Web3 with us, and help design the technologies that will redefine finance, security, and how we connect online!"
     },
     competitive: {
-      leads: [{ name: "Arvin Samuel A.", phone: "+91 98403 21513" },{ name: "Jesta S. A.", phone: "+91 63666 61315" }],
-      about: "Competitive Programming builds problem-solving and algorithmic skills.",
-      message: "Sharpen your coding and thinking skills with us!",
+      leads: [
+        { name: "Arvin Samuel A.", phone: "+91 98403 21513" },
+        { name: "Jesta S. A.", phone: "+91 63666 61315" }
+      ],
+      about: "Competitive programming is an adventure for the mind. Each problem is a puzzle, each solution a triumph. It sharpens not just your coding, but your thinking and creativity under pressure.",
+      message: "Join our community, challenge yourself with real problems, and discover the thrill of solving what once seemed impossible!"
     },
     design: {
-      leads: [{ name: "Varshini S.", phone: "+91 84381 03806" },{ name: "Twinkle Ghodki", phone: "+91 62617 43713" }],
-      about: "Design team creates beautiful and functional user experiences.",
-      message: "Bring creativity and usability together!",
+      leads: [
+        { name: "Varshini S.", phone: "+91 84381 03806" },
+        { name: "Twinkle Ghodki", phone: "+91 62617 43713" }
+      ],
+      about: "Design is storytelling without words. It’s about crafting experiences that feel effortless and beautiful, where users don’t just use your creation—they enjoy it, remember it, and fall in love with it.",
+      message: "Come join us, unleash your creativity, and turn ideas into designs that make people smile and connect with technology in meaningful ways!"
     },
     finance: {
-      leads: [{ name: "Disha Anand", phone: "+91 63695 11362" },{ name: "Swayam Kapoor", phone: "+91 80823 43992" },{ name: "Puneeth Reddy T.", phone: "+91 90805 25368" }],
-      about: "Finance manages resources and drives sustainable growth.",
-      message: "Learn the business side of technology!",
+      leads: [
+        { name: "Disha Anand", phone: "+91 63695 11362" },
+        { name: "Swayam Kapoor", phone: "+91 80823 43992" },
+        { name: "Puneeth Reddy T.", phone: "+91 90805 25368" }
+      ],
+      about: "Finance is the heartbeat of any project. It’s about understanding resources, planning wisely, and turning numbers into strategies that make big ideas possible.",
+      message: "Step in with us, and learn how to navigate the world of business, money, and strategy—so your tech ideas don’t just exist, they thrive!"
     },
     hardware: {
-      leads: [{ name: "Jyotishman Das", phone: "+91 76380 35816" },{ name: "Adithyan P.", phone: "+91 85907 61687" }],
-      about: "Hardware team works on circuits, IoT, and embedded systems.",
-      message: "Explore innovation at the intersection of hardware and software!",
+      leads: [
+        { name: "Jyotishman Das", phone: "+91 76380 35816" },
+        { name: "Adithyan P.", phone: "+91 85907 61687" }
+      ],
+      about: "Hardware is where ideas meet the real world. Circuits, sensors, and gadgets come together to create something you can touch, feel, and interact with—it’s pure magic in action.",
+      message: "Join us, experiment fearlessly, and turn your curiosity into devices and inventions that actually work and impress!"
     },
     operations: {
-      leads: [{ name: "Saanvi Singh", phone: "+91 91038 38250" },{ name: "Dhyan", phone: "+1-555-0707" }],
-      about: "Operations ensures everything runs smoothly behind the scenes.",
-      message: "Keep the engine of innovation running!",
+      leads: [
+        { name: "Saanvi Singh", phone: "+91 91038 38250" },
+        { name: "Dhyan", phone: "+1-555-0707" }
+      ],
+      about: "Operations is the invisible glue that holds everything together. Without it, even the best ideas can get lost. It’s about planning, organizing, and making sure every project succeeds.",
+      message: "Be part of our team, and help turn ambitious ideas into reality by making sure everything runs like clockwork—your impact will be felt everywhere!"
     },
     "social-media": {
-      leads: [{ name: "Rythwin", phone: "+91 88077 68327" },{ name: "Tanushree", phone: "+91 74569 29752" }],
-      about: "Social Media team builds online presence and community engagement.",
-      message: "Tell stories and connect with the world!",
+      leads: [
+        { name: "Rythwin", phone: "+91 88077 68327" },
+        { name: "Tanushree", phone: "+91 74569 29752" }
+      ],
+      about: "Social Media is the voice of our community. It’s where stories are told, excitement spreads, and people connect with ideas in ways that inspire and engage.",
+      message: "Join us, create content that resonates, and help us build a community where every post, tweet, or story makes a difference!"
     },
     "web-dev": {
-      leads: [{ name: "Harish G.", phone: "+91 93455 03772" },{ name: "Divik Dhiman", phone: "+91 81683 38829" }],
-      about: "Web Development builds responsive and scalable websites.",
-      message: "Craft modern web experiences with us!",
+      leads: [
+        { name: "Harish G.", phone: "+91 93455 03772" },
+        { name: "Divik Dhiman", phone: "+91 81683 38829" }
+      ],
+      about: "Web development is the craft of creating the digital world. It’s where design meets logic, and where interactive experiences come alive for millions of users.",
+      message: "Step in with us, build websites that aren’t just functional but memorable, and bring your ideas to life on the web, just like this one!!!"
     },
   };
 

@@ -32,19 +32,19 @@ const Footer = () => {
           {/* Social links */}
           <div className="flex flex-col space-y-3">
             <Link 
-              href="#" 
+              href="https://www.instagram.com/hackclubvitc/" 
               className="text-white text-lg font-medium hover:text-amber-200 transition-colors duration-200 underline decoration-1 underline-offset-4"
             >
               instagram
             </Link>
             <Link 
-              href="#" 
+              href="https://www.linkedin.com/company/hackclubvit/" 
               className="text-white text-lg font-medium hover:text-amber-200 transition-colors duration-200 underline decoration-1 underline-offset-4"
             >
               linkedin
             </Link>
             <Link 
-              href="#" 
+              href="mailto:hackclub.vitcc@gmail.com?subject=Onboarding%3A" 
               className="text-white text-lg font-medium hover:text-amber-200 transition-colors duration-200 underline decoration-1 underline-offset-4"
             >
               mail

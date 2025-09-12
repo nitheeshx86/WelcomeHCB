@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   title: "Welcome to Hack Club",
   description: "Join the best network of devs on campus.",
   icons: {
-    icon: "/logo.png",
+    icon: "/favicon.ico",
   }
 };
 
